@@ -45,13 +45,20 @@ public class AmqpConfig {
 	 */
 	@Bean
 	public Binding binding() {
-		return BindingBuilder.bind(queue()).to(directExchange()).with(AmqpConsts.ROUTINGKEY);
+		return BindingBuilder.bind(queue())
+				.to(directExchange())
+				.with(AmqpConsts.ROUTINGKEY);
 	}
 
 
 	/**
 	 * @title：rabbitmq日志监听队列
 	 */
+	@Bean
+	public TopicExchange logExchange() {
+		return new TopicExchange(AmqpConsts.EXCHANGE_LOG);
+	}
+
 	@Bean
 	public Queue infoQueue() {
 		return new Queue(AmqpConsts.QUEUE_LOG_INFO);
@@ -67,15 +74,21 @@ public class AmqpConfig {
 
 	@Bean
 	public Binding infoBinding() {
-		return BindingBuilder.bind(infoQueue()).to(new TopicExchange(AmqpConsts.EXCHANGE_LOG)).with(AmqpConsts.ROUTINGKEY_LOG_INFO);
+		return BindingBuilder.bind(infoQueue())
+				.to(logExchange())
+				.with(AmqpConsts.ROUTINGKEY_LOG_INFO);
 	}
 	@Bean
 	public Binding warningBinding() {
-		return BindingBuilder.bind(infoQueue()).to(new TopicExchange(AmqpConsts.EXCHANGE_LOG)).with(AmqpConsts.ROUTINGKEY_LOG_WARNING);
+		return BindingBuilder.bind(infoQueue())
+				.to(logExchange())
+				.with(AmqpConsts.ROUTINGKEY_LOG_WARNING);
 	}
 	@Bean
 	public Binding errorBinding() {
-		return BindingBuilder.bind(infoQueue()).to(new TopicExchange(AmqpConsts.EXCHANGE_LOG)).with(AmqpConsts.ROUTINGKEY_LOG_ERROR);
+		return BindingBuilder.bind(infoQueue())
+				.to(logExchange())
+				.with(AmqpConsts.ROUTINGKEY_LOG_ERROR);
 	}
 
 
