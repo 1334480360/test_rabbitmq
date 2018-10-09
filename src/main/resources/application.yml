@@ -1,0 +1,15 @@
+#sever配置
+server:
+  servlet:
+    context-path: /test
+  port: 8080
+
+#rabbitmq配置
+spring:
+  rabbitmq:
+    host: 172.16.100.132
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    publisher-confirms: true #消息确认机制
