@@ -80,13 +80,13 @@ public class AmqpConfig {
 	}
 	@Bean
 	public Binding warningBinding() {
-		return BindingBuilder.bind(infoQueue())
+		return BindingBuilder.bind(warningQueue())
 				.to(logExchange())
 				.with(AmqpConsts.ROUTINGKEY_LOG_WARNING);
 	}
 	@Bean
 	public Binding errorBinding() {
-		return BindingBuilder.bind(infoQueue())
+		return BindingBuilder.bind(errorQueue())
 				.to(logExchange())
 				.with(AmqpConsts.ROUTINGKEY_LOG_ERROR);
 	}
