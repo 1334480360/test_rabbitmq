@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
  * @date：2018/10/5
  */
 @Component
-@RabbitListener(queues = AmqpConsts.QUEUE)
 public class RabbitConsumer {
 
 	@RabbitHandler
+	@RabbitListener(queues = AmqpConsts.QUEUE)
 	public void process(String context) {
 		System.out.println("Receiver----- " + context);
 	}

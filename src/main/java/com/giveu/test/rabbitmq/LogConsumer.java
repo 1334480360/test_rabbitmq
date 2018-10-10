@@ -13,20 +13,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogConsumer {
 
-	@RabbitListener(queues = AmqpConsts.QUEUE_LOG_INFO)
 	@RabbitHandler
+	@RabbitListener(queues = AmqpConsts.QUEUE_LOG_INFO)
 	public void info(String context) {
 		System.out.println("Receiver RabbitMQ info message ----- " + context);
 	}
 
-	@RabbitListener(queues = AmqpConsts.QUEUE_LOG_WARNING)
 	@RabbitHandler
+	@RabbitListener(queues = AmqpConsts.QUEUE_LOG_WARNING)
 	public void warning(String context) {
 		System.out.println("Receiver RabbitMQ warning message ----- " + context);
 
 	}
-	@RabbitListener(queues = AmqpConsts.QUEUE_LOG_ERROR)
 	@RabbitHandler
+	@RabbitListener(queues = AmqpConsts.QUEUE_LOG_ERROR)
 	public void error(String context) {
 		System.out.println("Receiver RabbitMQ error message ----- " + context);
 	}

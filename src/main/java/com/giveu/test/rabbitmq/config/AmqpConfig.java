@@ -91,5 +91,44 @@ public class AmqpConfig {
 				.with(AmqpConsts.ROUTINGKEY_LOG_ERROR);
 	}
 
+	/**
+	 * @title：告警
+	 */
+	@Bean
+	public TopicExchange alarmExchange() {
+		return new TopicExchange(AmqpConsts.EXCHANGE_ALARM);
+	}
+	@Bean
+	public Queue alarmInfoQueue() {
+		return new Queue(AmqpConsts.QUEUE_ALARM_INFO);
+	}
+	@Bean
+	public Queue alarmWarningQueue() {
+		return new Queue(AmqpConsts.QUEUE_ALARM_WARNING);
+	}
+	@Bean
+	public Queue alarmErrorQueue() {
+		return new Queue(AmqpConsts.QUEUE_ALARM_ERROR);
+	}
+	@Bean
+	public Binding alarmInfoBinding() {
+		return BindingBuilder.bind(alarmInfoQueue())
+				.to(alarmExchange())
+				.with(AmqpConsts.ROUTINGKEY_ALARM_INFO);
+	}
+	@Bean
+	public Binding alarmWarningBinding() {
+		return BindingBuilder.bind(alarmWarningQueue())
+				.to(alarmExchange())
+				.with(AmqpConsts.ROUTINGKEY_ALARM_WARNING);
+	}
+	@Bean
+	public Binding alarmErrorBinding() {
+		return BindingBuilder.bind(alarmErrorQueue())
+				.to(alarmExchange())
+				.with(AmqpConsts.ROUTINGKEY_ALARM_ERROR);
+	}
+
+
 
 }
