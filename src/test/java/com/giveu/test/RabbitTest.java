@@ -1,7 +1,8 @@
 package com.giveu.test;
 
-import com.giveu.test.rabbitmq.ApmAlarmSender;
-import com.giveu.test.rabbitmq.RabbitSender;
+import com.giveu.test.sender.ApmAlarmSender;
+import com.giveu.test.sender.RabbitSender;
+import com.giveu.test.sender.UploadSender;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,6 +11,8 @@ public class RabbitTest extends RabbitMqApplicationTests {
 	private RabbitSender sender;
 	@Autowired
 	private ApmAlarmSender apmAlarmSender;
+	@Autowired
+	private UploadSender uploadSender;
 
 	@Test
 	public void hello() {
@@ -21,5 +24,10 @@ public class RabbitTest extends RabbitMqApplicationTests {
 		apmAlarmSender.sendInfo();
 		apmAlarmSender.sendWarning();
 		apmAlarmSender.sendError();
+	}
+
+	@Test
+	public void uploadTest() {
+		uploadSender.send();
 	}
 }

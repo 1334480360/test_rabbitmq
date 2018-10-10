@@ -1,4 +1,4 @@
-package com.giveu.test.rabbitmq.consts;
+package com.giveu.test.consts;
 
 public class AmqpConsts {
 	/**
@@ -29,5 +29,13 @@ public class AmqpConsts {
 	public static final String ROUTINGKEY_ALARM_INFO = "info";
 	public static final String ROUTINGKEY_ALARM_WARNING = "warning";
 	public static final String ROUTINGKEY_ALARM_ERROR = "error";
+
+	/**
+	 * 上传图片
+	 */
+	public static final String QUEUE_UPLOAD_RESIZE_PICTURE = "upload-resize-picture";
+	public static final String QUEUE_UPLOAD_NOTIFY_FRIENDS = "upload-notify-friends";
+	public static final String QUEUE_UPLOAD_ADD_POINTS = "upload-add-points";
+	public static final String EXCHANGE_UPLOAD = "upload-exchange";
 
 }

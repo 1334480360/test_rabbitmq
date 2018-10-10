@@ -1,6 +1,6 @@
-package com.giveu.test.rabbitmq.entity;
+package com.giveu.test.entity;
 
-import com.giveu.test.rabbitmq.enums.AlarmType;
+import com.giveu.test.enums.AlarmType;
 
 import java.io.Serializable;
 

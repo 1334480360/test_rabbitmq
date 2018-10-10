@@ -1,16 +1,11 @@
-package com.giveu.test.rabbitmq;
+package com.giveu.test.sender;
 
-import com.giveu.test.rabbitmq.consts.AmqpConsts;
-import com.giveu.test.rabbitmq.entity.ApmAlarm;
-import com.giveu.test.rabbitmq.enums.AlarmType;
+import com.giveu.test.consts.AmqpConsts;
+import com.giveu.test.entity.ApmAlarm;
+import com.giveu.test.enums.AlarmType;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.util.Date;
-import java.util.UUID;
 
 /**
  * @title：apm告警生产者

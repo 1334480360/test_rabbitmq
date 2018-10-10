@@ -1,6 +1,6 @@
-package com.giveu.test.rabbitmq.config;
+package com.giveu.test.config;
 
-import com.giveu.test.rabbitmq.consts.AmqpConsts;
+import com.giveu.test.consts.AmqpConsts;
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -129,6 +129,37 @@ public class AmqpConfig {
 				.with(AmqpConsts.ROUTINGKEY_ALARM_ERROR);
 	}
 
+	/**
+	 * @title：上传图片并行处理
+	 */
+	@Bean
+	public FanoutExchange uploadExchange() {
+		return new FanoutExchange(AmqpConsts.EXCHANGE_UPLOAD);
+	}
+	@Bean
+	public Queue resizePictureQueue() {
+		return new Queue(AmqpConsts.QUEUE_UPLOAD_RESIZE_PICTURE);
+	}
+	@Bean
+	public Queue notifyFriendsQueue() {
+		return new Queue(AmqpConsts.QUEUE_UPLOAD_NOTIFY_FRIENDS);
+	}
+	@Bean
+	public Queue addPointsQueue() {
+		return new Queue(AmqpConsts.QUEUE_UPLOAD_ADD_POINTS);
+	}
+	@Bean
+	public Binding resizePictureBinding() {
+		return BindingBuilder.bind(resizePictureQueue()).to(uploadExchange());
+	}
+	@Bean
+	public Binding notifyFriendsBinding() {
+		return BindingBuilder.bind(notifyFriendsQueue()).to(uploadExchange());
+	}
+	@Bean
+	public Binding addPointsBinding() {
+		return BindingBuilder.bind(addPointsQueue()).to(uploadExchange());
+	}
 
 
 }

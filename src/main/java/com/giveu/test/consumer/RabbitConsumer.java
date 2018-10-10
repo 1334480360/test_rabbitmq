@@ -1,6 +1,6 @@
-package com.giveu.test.rabbitmq;
+package com.giveu.test.consumer;
 
-import com.giveu.test.rabbitmq.consts.AmqpConsts;
+import com.giveu.test.consts.AmqpConsts;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.giveu.test.rabbitmq.enums;
+package com.giveu.test.enums;
 
 /**
  * @title：告警类型

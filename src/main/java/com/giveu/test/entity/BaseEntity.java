@@ -1,4 +1,4 @@
-package com.giveu.test.rabbitmq.entity;
+package com.giveu.test.entity;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

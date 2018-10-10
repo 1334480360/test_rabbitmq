@@ -1,6 +1,6 @@
-package com.giveu.test.rabbitmq;
+package com.giveu.test.sender;
 
-import com.giveu.test.rabbitmq.consts.AmqpConsts;
+import com.giveu.test.consts.AmqpConsts;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
