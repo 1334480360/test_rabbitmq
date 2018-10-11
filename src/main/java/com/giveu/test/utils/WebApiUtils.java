@@ -44,7 +44,7 @@ public class WebApiUtils {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getApiResult(WebApi.EXCHANGE_LIST));
+		System.out.println(getApiResult(WebApi.USER_LIST));
 	}
 
 }

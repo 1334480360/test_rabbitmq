@@ -7,6 +7,7 @@ package com.giveu.test.enums;
  */
 public enum WebApi {
 	EXCHANGE_LIST(1, "exchanges"),
+	USER_LIST(1, "users"),
 	;
 
 	private int code;
