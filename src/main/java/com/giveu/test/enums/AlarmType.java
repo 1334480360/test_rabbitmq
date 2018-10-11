@@ -7,8 +7,8 @@ package com.giveu.test.enums;
  */
 public enum AlarmType {
 	INFO(1, "INFO"),
-	WARNING(1, "WARNING"),
-	ERROR(1, "ERROR"),
+	WARNING(2, "WARNING"),
+	ERROR(3, "ERROR"),
 	;
 
 	private int code;
